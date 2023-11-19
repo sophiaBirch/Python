@@ -16,51 +16,51 @@ class Television():
                 volume = 0
                 channel = 0
         '''
-        self._status = False
-        self._muted = False
-        self._volume = self.MIN_VOLUME
-        self._channel = self.MIN_CHANNEL
-        self._prev = self._volume ## a temp variable that stores the previous volume while the TV is muted
+        self._status:bool = False
+        self._muted:bool = False
+        self._volume:int = self.MIN_VOLUME
+        self._channel:int = self.MIN_CHANNEL
+        self._prev:int = self._volume ## a temp variable that stores the previous volume while the TV is muted
 
-    def power(self):
+    def power(self) -> None:
         '''
             Turns power on/off
         '''
-        self._status = not(self._status)
+        self._status:bool = not(self._status)
 
-    def mute(self):
+    def mute(self) -> None:
         '''
             Mutes/unmutes and stores the previous volume
         '''
         if self._status == True:
-            self._muted = not(self._muted)
+            self._muted:bool = not(self._muted)
             if(self._muted == True):
-                self._prev = self._volume
-                self._volume = self.MIN_VOLUME
+                self._prev:int = self._volume
+                self._volume:int = self.MIN_VOLUME
             if(self._muted == False):
-                self._volume = self._prev
+                self._volume:int = self._prev
 
-    def channel_up(self):
+    def channel_up(self) -> None:
         '''
             Increases channel. If channel passes max channel num, cycles back to minimum channel. 
         '''
         if self._status == True:
             if self._channel == self.MAX_CHANNEL:
-                self._channel = self.MIN_CHANNEL ## cycles channel back to min channel
+                self._channel:int = self.MIN_CHANNEL ## cycles channel back to min channel
             else:
                 self._channel += 1
 
-    def channel_down(self):
+    def channel_down(self) -> None:
         '''
             Decreases channel. If channel passes min channel num, cycles back to max channel. 
         '''
         if self._status == True:
             if self._channel == self.MIN_CHANNEL:
-                self._channel = self.MAX_CHANNEL ## cycles channel back to max channel
+                self._channel:int = self.MAX_CHANNEL ## cycles channel back to max channel
             else:
                 self._channel -= 1
 
-    def volume_up(self):
+    def volume_up(self) -> None:
         '''
             Increases volume. If volume exceeds max, stays at max volume
         '''
@@ -70,11 +70,11 @@ class Television():
                 self.mute()
 
             if self._volume == self.MAX_VOLUME:
-                self._volume = self.MAX_VOLUME ## stays on max volume 
+                self._volume:int = self.MAX_VOLUME ## stays on max volume 
             else:
                 self._volume += 1
 
-    def volume_down(self):
+    def volume_down(self) -> None:
         '''
             Decreases volume. If volume exceeds min, stays at min volume
         '''
@@ -84,7 +84,7 @@ class Television():
                 self.mute()
 
             if self._volume == self.MIN_VOLUME:
-                self._volume = self.MIN_VOLUME #stays on min volume
+                self._volume:int = self.MIN_VOLUME #stays on min volume
             else:
                 self._volume -= 1
 
