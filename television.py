@@ -88,5 +88,5 @@ class Television():
             else:
                 self._volume -= 1
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Power = {self._status}, Channel = {self._channel}, Volume = {self._volume}"
