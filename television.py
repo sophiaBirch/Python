@@ -89,4 +89,11 @@ class Television():
                 self._volume -= 1
 
     def __str__(self) -> str:
+        '''
+            Returns: a string with the status of tv elements:
+                Power (boolean)
+                Channel (int)
+                Volume (int)
+            
+        '''
         return f"Power = {self._status}, Channel = {self._channel}, Volume = {self._volume}"
